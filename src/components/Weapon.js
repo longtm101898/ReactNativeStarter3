@@ -1,16 +1,15 @@
 import React from "react";
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image } from "react-native";
 
-import SvgUri from 'react-native-svg-uri';
+import SvgUri from "react-native-svg-uri";
 import rock from "../assets/weapons/rock.svg";
 import paper from "../assets/weapons/paper.svg";
 import scissors from "../assets/weapons/scissors.svg";
 import question from "../assets/weapons/question.svg";
 import loading from "../assets/weapons/loading.svg";
 
-
 const weapon = props => {
-  const choseWeapon = (type) => {
+  const choseWeapon = type => {
     switch (type) {
       case "rock":
         return rock;
@@ -24,30 +23,23 @@ const weapon = props => {
   };
 
   return (
-    <View style={ styles.weapon }>
-      <View style={ styles.image }>
-        <SvgUri
-          width="180"
-          height="180"
-          source={ choseWeapon(props.type) }
-        />
+    <View style={styles.weapon}>
+      <View style={styles.image}>
+        <SvgUri width="160" height="160" source={choseWeapon(props.type)} />
       </View>
-      <Text style={ styles.name }>{ props.type }</Text>
+      <Text style={styles.name}>{props.type}</Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  weapon: {
-
-  },
+  weapon: {},
   image: {
-    justifyContent: 'center',
-    alignItems: 'center',
-
+    justifyContent: "center",
+    alignItems: "center"
   },
   name: {
-    textAlign: 'center',
+    textAlign: "center"
   }
 });
 

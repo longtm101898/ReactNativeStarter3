@@ -75,10 +75,11 @@ export default class Game extends Component {
   render() {
     const { player1, player2 } = this.state;
     return (
-      <View>
-        <Header />
-        <Text style={styles.title}>React Native Week 3!</Text>
-        <ScrollView contentContainerStyle={styles.container}>
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <Header />
+        </View>
+        <View style={styles.playerWrapper}>
           <Player
             label={player1.label}
             weapon={player1.weapon}
@@ -91,25 +92,30 @@ export default class Game extends Component {
             score={player2.score}
             loading="false"
           />
-        </ScrollView>
-        <Controls pickWeapon={this.pickWeapon} />
+        </View>
+        <View style={styles.gameControl}>
+          <Controls pickWeapon={this.pickWeapon} />
+        </View>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  title: {
-    backgroundColor: "#ff2e4c",
-    color: "#ffffff",
-    textAlign: "center",
-    fontSize: 30,
-    fontWeight: "bold"
-  },
   container: {
-    display: "flex",
-    backgroundColor: "#fcd77f",
+    flex: 1
+  },
+  header: {
+    flex: 0.3,
+    backgroundColor: "blue"
+  },
+  playerWrapper: {
+    flex: 0.5,
+    backgroundColor: "#a3fff0",
     flexDirection: "row",
     justifyContent: "center"
+  },
+  gameControl: {
+    flex: 0.2
   }
 });

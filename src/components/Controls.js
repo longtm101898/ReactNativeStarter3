@@ -31,8 +31,6 @@ const controls = props => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#2e99b0",
-    height: 100,
-    display: "flex",
     flexDirection: "row",
     justifyContent: "center"
   },

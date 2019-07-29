@@ -3,18 +3,14 @@ import { StyleSheet, Text, View } from "react-native";
 
 const header = props => {
   return (
-    <View style={styles.header}>
+    <View>
       <Text style={styles.title}>Rock - Paper - Scissors</Text>
+      <Text style={styles.title}>React Native Week 3!</Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  header: {
-    height: 150,
-    backgroundColor: "#1e1548",
-    padding: 20
-  },
   title: {
     marginTop: 20,
     fontSize: 20,
