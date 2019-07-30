@@ -2,28 +2,20 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import Button from "./Button";
 
-import { weaponKeys } from "../constants/WEAPONS";
+import { weaponKeys } from "../constants/Weapons";
 
-const controls = props => {
-  const mode = "vs";
-
+const Controls = ({ pickWeapon }) => {
   return (
     <View style={styles.container}>
-      {mode === "vs" ? (
-        weaponKeys.map((weapon, index) => (
-          <View key={index} style={styles.element}>
-            <Button
-              styleName="flat"
-              onPress={() => props.pickWeapon(weapon)}
-              text={weapon}
-            />
-          </View>
-        ))
-      ) : (
-        <View style={styles.element}>
-          <Button styleName="flat" onPress={onPress} text="Play" />
+      {weaponKeys.map((weapon, i) => (
+        <View key={i} style={styles.element}>
+          <Button
+            styleName="flat"
+            onPress={() => pickWeapon(weapon)}
+            text={weapon}
+          />
         </View>
-      )}
+      ))}
     </View>
   );
 };
@@ -32,12 +24,13 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#2e99b0",
     flexDirection: "row",
-    justifyContent: "center"
+    justifyContent: "center",
+    padding: 5
   },
   element: {
-    alignSelf: "center",
+    alignItems: "center",
     margin: 5
   }
 });
 
-export default controls;
+export default Controls;

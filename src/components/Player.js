@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 
 import Weapon from "./Weapon";
 
-const player = ({ label, loading, weapon, score }) => {
+const Player = ({ label, loading, weapon, score }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.label}>{label}</Text>
@@ -15,21 +15,19 @@ const player = ({ label, loading, weapon, score }) => {
   );
 };
 
-export default player;
+export default Player;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1
   },
-  //.player .label
   label: {
     textAlign: "center",
-    marginTop: 3,
+    marginTop: 5,
     fontSize: 20,
-    fontWeight: "bold",
+    fontWeight: "800",
     letterSpacing: 5
   },
-  //.player .score
   score: {
     backgroundColor: "#ff2e4c",
     textAlign: "center",
@@ -39,6 +37,6 @@ const styles = StyleSheet.create({
     padding: 10,
     margin: 10,
     fontSize: 20,
-    fontWeight: "400"
+    fontWeight: "500"
   }
 });

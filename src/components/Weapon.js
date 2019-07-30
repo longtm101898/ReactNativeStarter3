@@ -6,10 +6,9 @@ import rock from "../assets/weapons/rock.svg";
 import paper from "../assets/weapons/paper.svg";
 import scissors from "../assets/weapons/scissors.svg";
 import question from "../assets/weapons/question.svg";
-import loading from "../assets/weapons/loading.svg";
 
-const weapon = props => {
-  const choseWeapon = type => {
+const weapon = ({ type }) => {
+  choseWeapon = type => {
     switch (type) {
       case "rock":
         return rock;
@@ -25,9 +24,9 @@ const weapon = props => {
   return (
     <View style={styles.weapon}>
       <View style={styles.image}>
-        <SvgUri width="160" height="160" source={choseWeapon(props.type)} />
+        <SvgUri width="160" height="180" source={choseWeapon(type)} />
       </View>
-      <Text style={styles.name}>{props.type}</Text>
+      <Text style={styles.name}>{type}</Text>
     </View>
   );
 };
