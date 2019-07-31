@@ -75,7 +75,6 @@ export default class Game extends Component {
     });
   };
   render() {
-    console.log(this.state);
     const { player1, player2, playerWin, totalGames } = this.state;
     return (
       <View style={styles.container}>

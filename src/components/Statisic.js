@@ -1,29 +1,46 @@
 import React from "react";
-import { View, Text, Modal, StyleSheet } from "react-native";
+import { View, Modal, StyleSheet } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import Button from "./Button";
+import { WinnerPieChart } from "./Statistic/PieChart";
 
 class Statisic extends React.Component {
-  state = { modalOpen: false };
+  state = {
+    modalOpen: false,
+    selectedSlice: {
+      label: "",
+      value: 0
+    },
+    labelWidth: 0
+  };
   handleModal = () => {
     this.setState({
       modalOpen: !this.state.modalOpen
     });
   };
-  renderGameStatistic = gameStatistic => {
-    var player1Stas = gameStatistic.player1.score;
-    return (
-      <View>
-        <Text>player1Stas: {player1Stas}</Text>
-      </View>
-    );
+  onSelectSlice = (key, index, valuesPie, totalGames) => {
+    this.setState({
+      selectedSlice: {
+        label: key,
+        value: (valuesPie[index] / totalGames).toFixed(2) + "%"
+      }
+    });
   };
+
+  setLabelWidth = width => {
+    this.setState({ labelWidth: width });
+  };
+
   render() {
-    const { gameStatistic } = this.props;
+    const {
+      player1,
+      player2,
+      totalGames,
+      totalTieGames
+    } = this.props.gameStatistic;
+    const { selectedSlice, labelWidth } = this.state;
     return (
-      <View
-        style={{ justifyContent: "center", alignItems: "center", margin: 5 }}
-      >
+      <View style={styles.statisicContainer}>
         <Button
           onPress={this.handleModal}
           text="Game history"
@@ -40,7 +57,16 @@ class Statisic extends React.Component {
               />
             </View>
             <View style={{ flex: 0.95 }}>
-              {this.renderGameStatistic(gameStatistic)}
+              <WinnerPieChart
+                player1={player1}
+                player2={player2}
+                totalGames={totalGames}
+                totalTieGames={totalTieGames}
+                onSelectSlice={this.onSelectSlice}
+                labelWidth={labelWidth}
+                selectedSlice={selectedSlice}
+                setLabelWidth={this.setLabelWidth}
+              />
             </View>
           </View>
         </Modal>
@@ -52,6 +78,11 @@ class Statisic extends React.Component {
 export default Statisic;
 
 const styles = StyleSheet.create({
+  statisicContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    margin: 5
+  },
   btnOpenModalStyle: {
     backgroundColor: "grey",
     borderRadius: 20,
