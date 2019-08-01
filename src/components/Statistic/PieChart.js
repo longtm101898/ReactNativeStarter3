@@ -62,8 +62,8 @@ export const WinnerPieChart = ({
           {`${label} \n ${value}`}
         </Text>
       </View>
-      <View style={{ flex: 0.6, margin: 5 }}>
-        <Text>Statisic: </Text>
+      <View style={{ flex: 0.6, margin: 10 }}>
+        <Text style={{ fontSize: 22, fontWeight: "400" }}>Statisic: </Text>
         <Text>Total Games: {totalGames}</Text>
         <Text>
           Total Tie Games: {totalTieGames} ->{" "}

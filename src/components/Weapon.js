@@ -22,7 +22,7 @@ const weapon = ({ type }) => {
   };
 
   return (
-    <View style={styles.weapon}>
+    <View>
       <View style={styles.image}>
         <SvgUri width="160" height="180" source={choseWeapon(type)} />
       </View>
@@ -32,7 +32,6 @@ const weapon = ({ type }) => {
 };
 
 const styles = StyleSheet.create({
-  weapon: {},
   image: {
     justifyContent: "center",
     alignItems: "center"

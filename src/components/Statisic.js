@@ -13,11 +13,13 @@ class Statisic extends React.Component {
     },
     labelWidth: 0
   };
+
   handleModal = () => {
     this.setState({
       modalOpen: !this.state.modalOpen
     });
   };
+
   onSelectSlice = (key, index, valuesPie, totalGames) => {
     this.setState({
       selectedSlice: {

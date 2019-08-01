@@ -3,17 +3,15 @@ import { StyleSheet, Text, View } from "react-native";
 
 import Weapon from "./Weapon";
 
-const Player = ({ label, loading, weapon, score }) => {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.label}>{label}</Text>
-      <Text style={styles.score}>{score}k</Text>
-      <View>
-        <Weapon type={weapon} loading={loading} />
-      </View>
+const Player = ({ label, loading, weapon, score }) => (
+  <View style={styles.container}>
+    <Text style={styles.label}>{label}</Text>
+    <Text style={styles.score}>{score}k</Text>
+    <View>
+      <Weapon type={weapon} loading={loading} />
     </View>
-  );
-};
+  </View>
+);
 
 export default Player;
 
